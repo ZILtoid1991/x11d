@@ -1,4 +1,7 @@
 module x11.Xmd;
+
+version(linux):
+
 //~ import std.string;
 import std.conv;
 import core.stdc.config;
@@ -20,6 +23,9 @@ version( X86_64 ){
      * on a 32-bit machine and must correspond to the protocol.
      */
     enum bool MUSTCOPY = true;
+} else version(AArch64){
+	enum bool LONG64 = true; /* aarch64 is well, 64 bit */
+	enum bool MUSTCOPY = true;
 }
 else{
     enum bool LONG64 = false;
@@ -53,6 +59,12 @@ alias _SIZEOF SIZEOF;
  */
 version( X86_64 ){
     alias long INT64;
+    //~ #  define B32 :32
+    //~ #  define B16 :16
+    alias uint INT32;
+    alias uint INT16;
+} else version(AArch64){
+	alias long INT64;
     //~ #  define B32 :32
     //~ #  define B16 :16
     alias uint INT32;
