@@ -1,6 +1,6 @@
 module x11.keysym;
 
-version(linux):
+version(Posix):
 
 /* default keysyms */
 enum bool XK_MISCELLANY     = true;
