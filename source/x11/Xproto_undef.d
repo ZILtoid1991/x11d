@@ -1,6 +1,6 @@
 module x11.Xproto_undef;
 
-version(linux):
+version(posix):
 
 import x11.Xmd;
 
