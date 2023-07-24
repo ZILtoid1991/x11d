@@ -1,5 +1,7 @@
 module x11.Xproto_undef;
 
+version(linux):
+
 import x11.Xmd;
 
 alias CARD32    Window;
