@@ -1,4 +1,7 @@
 module x11.X;
+
+version(linux):
+
 import core.stdc.config;
 
 extern (C) nothrow:
