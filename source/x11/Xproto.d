@@ -1,6 +1,6 @@
 module x11.Xproto;
 
-version(linux):
+version(posix):
 
 import x11.Xmd;
 import x11.Xprotostr;
