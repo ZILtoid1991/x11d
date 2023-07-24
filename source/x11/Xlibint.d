@@ -6,6 +6,9 @@ module x11.Xlibint;
  *
  *  Warning, there be dragons here....
  */
+
+version(linux):
+
 import std.stdio;
 import core.stdc.string : memcpy;
 import core.stdc.config;
