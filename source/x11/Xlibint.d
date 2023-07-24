@@ -7,7 +7,7 @@ module x11.Xlibint;
  *  Warning, there be dragons here....
  */
 
-version(posix):
+version(Posix):
 
 import std.stdio;
 import core.stdc.string : memcpy;
