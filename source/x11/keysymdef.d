@@ -1,6 +1,6 @@
 module x11.keysymdef;
 
-version(linux):
+version(Posix):
 
 import x11.keysym;
 
