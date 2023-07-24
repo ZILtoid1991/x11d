@@ -1,6 +1,6 @@
 module x11.Xatom;
 
-version(linux):
+version(Posix):
 
 enum XA_PRIMARY = 1;
 enum XA_SECONDARY = 2;
