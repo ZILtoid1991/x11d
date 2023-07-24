@@ -1,5 +1,7 @@
 module x11.cursorfont;
 
+version(linux) :
+
 enum XC_num_glyphs = 154;
 enum XC_X_cursor = 0;
 enum XC_arrow = 2;
