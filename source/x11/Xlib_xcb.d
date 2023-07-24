@@ -1,4 +1,7 @@
 module x11.Xlib_xcb;
+
+version(linux):
+
 // import deimos.XCB.xcb;
 import x11.Xlib;
 //import x11.Xfuncproto;
