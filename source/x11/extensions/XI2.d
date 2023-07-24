@@ -1,4 +1,7 @@
 module x11.extensions.XI2;
+
+version(Posix):
+
 import std.string;
 
 extern (C) nothrow:
