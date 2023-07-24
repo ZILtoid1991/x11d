@@ -1,4 +1,7 @@
 module x11.Xresource;
+
+version(Posix):
+
 import x11.Xlib;
 
 extern (C) nothrow:
