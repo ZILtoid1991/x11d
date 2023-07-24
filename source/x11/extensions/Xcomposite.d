@@ -1,5 +1,7 @@
 module x11.extensions.Xcomposite;
 
+version(Posix):
+
 public import
 	x11.X,
 	x11.Xlib;
