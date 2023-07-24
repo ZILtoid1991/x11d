@@ -1,6 +1,6 @@
 module x11.Xlib;
 
-version(posix):
+version(Posix):
 
 import core.stdc.config;
 import core.stdc.stdarg;
