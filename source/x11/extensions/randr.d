@@ -1,4 +1,7 @@
 module x11.extensions.randr;
+
+version(Posix):
+
 /*
  * Copyright © 2000 Compaq Computer Corporation
  * Copyright © 2002 Hewlett Packard Company
