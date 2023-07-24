@@ -1,6 +1,6 @@
 module x11.Xlib_xcb;
 
-version(posix):
+version(Posix):
 
 // import deimos.XCB.xcb;
 import x11.Xlib;
