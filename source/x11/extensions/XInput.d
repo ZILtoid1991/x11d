@@ -1,5 +1,7 @@
 module x11.extensions.XInput;
 
+version(Posix):
+
 public import
 	x11.X,
     x11.Xlib,
