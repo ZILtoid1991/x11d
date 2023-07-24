@@ -1,5 +1,7 @@
 module x11.keysym;
 
+version(linux):
+
 /* default keysyms */
 enum bool XK_MISCELLANY     = true;
 enum bool XK_XKB_KEYS       = true;
