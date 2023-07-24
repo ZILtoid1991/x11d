@@ -1,5 +1,7 @@
 module x11.extensions.render;
 
+version(Posix):
+
 import x11.X;
 
 alias XID		Glyph;
