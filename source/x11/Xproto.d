@@ -1,5 +1,7 @@
 module x11.Xproto;
 
+version(linux):
+
 import x11.Xmd;
 import x11.Xprotostr;
 import x11.Xlib;
