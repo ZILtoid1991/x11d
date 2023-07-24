@@ -1,5 +1,7 @@
 module x11.Xprotostr;
 
+version(Posix):
+
 import x11.Xmd;
 
 /* Used by PolySegment */
