@@ -1,5 +1,7 @@
 module x11.extensions.Xge;
 
+version(Posix):
+
 /* XGE Client interfaces */
 
 import x11.Xlib;
