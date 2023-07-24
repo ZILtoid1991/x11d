@@ -1,4 +1,7 @@
 module x11.Xregion;
+
+version(Posix):
+
 import core.stdc.config;
 
 import x11.Xlibint;
