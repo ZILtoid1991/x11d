@@ -1,5 +1,7 @@
 module x11.extensions.XI;
 
+version(Posix):
+
 import core.stdc.config;
 
 /* Definitions used by the server, library and client */
