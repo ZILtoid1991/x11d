@@ -1,5 +1,7 @@
 module x11.Xutil;
 
+version(Posix):
+
 import core.stdc.config;
 import x11.Xlib;
 import x11.X;
