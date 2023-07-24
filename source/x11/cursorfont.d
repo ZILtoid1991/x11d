@@ -1,6 +1,6 @@
 module x11.cursorfont;
 
-version(linux) :
+version(Posix):
 
 enum XC_num_glyphs = 154;
 enum XC_X_cursor = 0;
