@@ -1,4 +1,7 @@
 module x11.extensions.Xrender;
+
+version(Posix):
+
 /*
  *
  * Copyright © 2000 SuSE, Inc.
