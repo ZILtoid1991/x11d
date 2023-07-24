@@ -1,6 +1,6 @@
 module x11.X;
 
-version(linux):
+version(Posix):
 
 import core.stdc.config;
 
