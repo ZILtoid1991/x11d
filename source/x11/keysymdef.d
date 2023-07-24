@@ -1,5 +1,7 @@
 module x11.keysymdef;
 
+version(linux):
+
 import x11.keysym;
 
 extern (C) nothrow:
