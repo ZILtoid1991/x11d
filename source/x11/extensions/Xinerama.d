@@ -25,6 +25,8 @@ in this Software without prior written authorization from The Open Group.
 */
 module x11.extensions.Xinerama;
 
+version(Posix):
+
 import x11.Xlib;
 
 
