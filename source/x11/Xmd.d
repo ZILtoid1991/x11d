@@ -1,6 +1,6 @@
 module x11.Xmd;
 
-version(linux):
+version(posix):
 
 //~ import std.string;
 import std.conv;
