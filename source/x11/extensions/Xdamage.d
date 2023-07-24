@@ -1,4 +1,7 @@
 module x11.extensions.Xdamage;
+
+version(Posix):
+
 /*
  * Copyright © 2003 Keith Packard
  *
