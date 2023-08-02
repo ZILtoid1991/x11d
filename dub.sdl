@@ -4,3 +4,8 @@ authors "Walter Bright"
 license "Boost Software License"
 targetType "library"
 libs "x11" platform="posix"
+subPackage {
+    name "wintest"
+    sourcePaths "./wintest"
+    dependency "x11" version="*"
+}

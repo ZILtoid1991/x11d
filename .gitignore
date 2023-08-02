@@ -3,3 +3,6 @@
 *.a
 *.so
 *.lib
+*.exe
+*.pdb
+x11_test
