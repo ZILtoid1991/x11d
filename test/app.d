@@ -1,6 +1,8 @@
 module test.app;
 
 import x11.Xlib;
+import x11.X;
+
 
 import std.stdio;
 
@@ -23,7 +25,7 @@ int main() {
     scr = DefaultScreen(dpy);
     root = RootWindow(dpy, scr);
 
-    win = XCreateSimpleWindow(scr, root, 0, 0, WIDTH, HEIGHT, BORDER, BlackPixel(dpy, scr), WhitePixel(dpy, scr));
+    win = XCreateSimpleWindow(dpy, root, 0, 0, WIDTH, HEIGHT, BORDER, BlackPixel(dpy, scr), WhitePixel(dpy, scr));
     XMapWindow(dpy, win);
     while (XNextEvent(dpy, &ev)) {
 

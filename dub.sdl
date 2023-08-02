@@ -9,3 +9,8 @@ subPackage {
     sourcePaths "./wintest"
     dependency "x11" version="*"
 }
+subPackage {
+    name "test"
+    sourcePaths "./test"
+    dependency "x11" version="*"
+}
