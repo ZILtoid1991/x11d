@@ -1,17 +1,17 @@
-# X11
+# X11-D
 
 **Bindings to X11 for the D programming language**
 
----
+Resurrected from the previous library to fix some compatibility issues, mainly with ARM
 
 ## Supported platforms
 These bindings have been developed with the latest DMD compiler. Other compilers have not been tested but should build fine.
 
 ### Linux
-Should build just fine.
+Tested, builds fine. Both Intel and ARM CPUs will build fine.
 
 ### Mac OSX
-Support for Mac OSX is deprecated as x11 is no longer officially supported. You can still try and use these bindings with [XQuartz](http://xquartz.macosforge.org/landing/) installed but you're on your own.
+Untested, due to lack of hardware. XQuartz should make it working.
 
 ### Windows
-Not supported.
+Automatically excludes itself under Windows. Cygwin/X supposedly should enable it to work under Windows, but I chose to not bother with it.
