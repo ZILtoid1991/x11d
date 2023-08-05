@@ -1,4 +1,4 @@
-name "x11"
+name "x11d"
 description "x11 bindings for D"
 authors "Walter Bright"
 license "Boost Software License"
@@ -7,10 +7,10 @@ libs "x11" platform="posix"
 subPackage {
     name "wintest"
     sourcePaths "./wintest"
-    dependency "x11" version="*"
+    dependency "x11d" version="*"
 }
 subPackage {
     name "test"
     sourcePaths "./test"
-    dependency "x11" version="*"
+    dependency "x11d" version="*"
 }
