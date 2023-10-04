@@ -1,6 +1,9 @@
 module x11.Xmd;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 //~ import std.string;
 import std.conv;
@@ -8,7 +11,7 @@ import core.stdc.config;
 
 import x11.Xtos;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 /*
  *  Xmd.d: MACHINE DEPENDENT DECLARATIONS.
  */

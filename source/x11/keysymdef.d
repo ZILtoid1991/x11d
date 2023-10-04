@@ -1,10 +1,13 @@
 module x11.keysymdef;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 import x11.keysym;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 const int XK_VoidSymbol                 = 0xffffff;  /* Void symbol */
 

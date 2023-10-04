@@ -1,6 +1,9 @@
 module x11.extensions.damagewire;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 /*
  * Copyright © 2003 Keith Packard

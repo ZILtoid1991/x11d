@@ -1,10 +1,13 @@
 module x11.extensions.XI2;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 import std.string;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 /* Indices into the versions[] array (XExtInt.c). Used as a index to
  * retrieve the minimum version of XI from _XiCheckExtInit.

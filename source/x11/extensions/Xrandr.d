@@ -1,6 +1,9 @@
 module x11.extensions.Xrandr;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 /*
  * Copyright © 2000 Compaq Computer Corporation, Inc.
@@ -36,7 +39,7 @@ import x11.extensions.Xrender;
 import x11.extensions.randr;
 //import x11.Xfuncproto;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 alias XID RROutput;
 alias XID RRCrtc;

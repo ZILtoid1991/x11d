@@ -1,6 +1,9 @@
 module x11.Xproto_undef;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 import x11.Xmd;
 

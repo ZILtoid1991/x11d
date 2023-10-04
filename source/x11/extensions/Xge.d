@@ -1,12 +1,15 @@
 module x11.extensions.Xge;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 /* XGE Client interfaces */
 
 import x11.Xlib;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 /**
  * Generic Event mask.

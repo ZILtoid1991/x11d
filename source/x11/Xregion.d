@@ -1,13 +1,16 @@
 module x11.Xregion;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 import core.stdc.config;
 
 import x11.Xlibint;
 import x11.Xlib : XPoint;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 struct Box{
     short x1, x2, y1, y2;

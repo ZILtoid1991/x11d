@@ -1,4 +1,9 @@
 module x11.XlibConf;
+
+version (x11d_force_exclude) {
+
+
+} else version (Posix) :
 /*
  * This header file exports defines necessary to correctly
  * use Xlibint.h both inside Xlib and by external libraries

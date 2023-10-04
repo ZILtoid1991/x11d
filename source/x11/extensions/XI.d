@@ -1,6 +1,9 @@
 module x11.extensions.XI;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 import core.stdc.config;
 

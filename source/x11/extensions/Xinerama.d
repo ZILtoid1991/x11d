@@ -25,12 +25,15 @@ in this Software without prior written authorization from The Open Group.
 */
 module x11.extensions.Xinerama;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 import x11.Xlib;
 
 
-extern(C) nothrow:
+extern(C) @nogc nothrow:
 
 
 struct XineramaScreenInfo {

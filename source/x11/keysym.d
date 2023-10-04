@@ -1,6 +1,9 @@
 module x11.keysym;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 /* default keysyms */
 enum bool XK_MISCELLANY     = true;

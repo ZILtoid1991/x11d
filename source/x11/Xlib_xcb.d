@@ -1,12 +1,15 @@
 module x11.Xlib_xcb;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 // import deimos.XCB.xcb;
 import x11.Xlib;
 //import x11.Xfuncproto;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 // xcb_connection_t*	XGetXCBConnection(Display* dpy);
 

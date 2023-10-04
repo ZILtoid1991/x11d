@@ -1,12 +1,15 @@
 module x11.Xproto;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 import x11.Xmd;
 import x11.Xprotostr;
 import x11.Xlib;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 /*
  * Define constants for the sizes of the network packets.  The sz_ prefix is

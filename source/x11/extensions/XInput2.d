@@ -1,6 +1,9 @@
 module x11.extensions.XInput2;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 import x11.Xlib;
 import x11.X;
@@ -8,7 +11,7 @@ import x11.extensions.XI2;
 import x11.extensions.Xge;
 import core.stdc.config;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 /*******************************************************************
  *

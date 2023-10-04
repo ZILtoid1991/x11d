@@ -1,6 +1,9 @@
 module x11.Xatom;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 enum XA_PRIMARY = 1;
 enum XA_SECONDARY = 2;

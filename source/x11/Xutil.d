@@ -1,6 +1,9 @@
 module x11.Xutil;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 import core.stdc.config;
 import x11.Xlib;
@@ -9,7 +12,7 @@ import x11.Xregion;
 import x11.Xresource : XrmStringToQuark;
 import x11.keysym;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 /*
  * Bitmask returned by XParseGeometry().  Each bit tells if the corresponding

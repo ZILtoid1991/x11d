@@ -1,6 +1,9 @@
 module x11.extensions.randr;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 /*
  * Copyright © 2000 Compaq Computer Corporation

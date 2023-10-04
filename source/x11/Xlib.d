@@ -1,12 +1,15 @@
 module x11.Xlib;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 import core.stdc.config;
 import core.stdc.stdarg;
 import x11.X;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 const int XlibSpecificationRelease  = 6;
 const int X_HAVE_UTF8_STRING        = 1;
@@ -270,7 +273,7 @@ struct XServerInterpretedAddress{
     char* value;                                        /* pointer to where to find the address                         */
 }
 
-struct XImage{
+struct XImage {
     int width, height;                                  /* size of image                                                */
     int xoffset;                                        /* number of pixels offset in X direction                       */
     int format;                                         /* XYBitmap, XYPixmap, ZPixmap                                  */
@@ -287,7 +290,7 @@ struct XImage{
     c_ulong  blue_mask;
     XPointer obdata;                                    /* hook for the object routines to hang on                      */
     struct F {                                          /* image manipulation routines                                  */
-        extern (C) nothrow:
+        extern (C) @nogc nothrow:
 		XImage* function(
                             XDisplay*   /* display          */,
                             Visual*     /* visual           */,
@@ -415,7 +418,7 @@ struct _XDisplay{
     XID private4;
     XID private5;
     int private6;
-    extern (C) nothrow XID function(_XDisplay*) resource_alloc;             /* allocator function */
+    extern (C) @nogc nothrow XID function(_XDisplay*) resource_alloc;             /* allocator function */
     int char_order;                                     /* screen char order, LSBFirst, MSBFirst */
     int bitmap_unit;                                    /* padding and data requirements */
     int bitmap_pad;                                     /* padding requirements on bitmaps */

@@ -1,6 +1,9 @@
 module x11.extensions.Xdamage;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 /*
  * Copyright © 2003 Keith Packard
@@ -46,7 +49,7 @@ struct XDamageNotifyEvent {
     XRectangle geometry;
 }
 
-extern(C) nothrow:
+extern(C) @nogc nothrow:
 
 Bool XDamageQueryExtension (Display *dpy,
                             int *event_base_return,

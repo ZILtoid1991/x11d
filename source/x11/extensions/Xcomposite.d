@@ -1,12 +1,15 @@
 module x11.extensions.Xcomposite;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 public import
 	x11.X,
 	x11.Xlib;
 
-extern(C):
+extern(C) @nogc nothrow:
 
 	alias XserverRegion = XID;
 

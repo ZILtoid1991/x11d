@@ -7,7 +7,10 @@ module x11.Xlibint;
  *  Warning, there be dragons here....
  */
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 import std.stdio;
 import core.stdc.string : memcpy;
@@ -24,7 +27,7 @@ import x11.Xtos;
 import x11.Xproto;                                      /* to declare xEvent                                            */
 import x11.XlibConf;                                    /* for configured options like XTHREADS                         */
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 version( WIN32 )
     alias _XFlush _XFlushIt;
@@ -68,7 +71,7 @@ struct _XDisplay{
     XID                 resource_mask;                  /* resource ID mask bits                                        */
     XID                 resource_id;                    /* allocator current ID                                         */
     int                 resource_shift;                 /* allocator shift to correct bits                              */
-    extern (C) nothrow XID function( _XDisplay* )resource_alloc;/* allocator function                                           */
+    extern (C) @nogc nothrow XID function( _XDisplay* )resource_alloc;/* allocator function                                           */
     int                 byte_order;                     /* screen byte order, LSBFirst, MSBFirst                        */
     int                 bitmap_unit;                    /* padding and data requirements                                */
     int                 bitmap_pad;                     /* padding requirements on bitmaps                              */
@@ -87,7 +90,7 @@ struct _XDisplay{
     char*               bufmax;                         /* Output buffer maximum+1 address.                             */
     uint                max_request_size;               /* maximum number 32 bit words in request                       */
     _XrmHashBucketRec*  db;
-    extern (C) nothrow int function( _XDisplay* ) synchandler;/* Synchronization handler                                      */
+    extern (C) @nogc nothrow int function( _XDisplay* ) synchandler;/* Synchronization handler                                      */
     char*               display_name;                   /* "host:display" string used on this connect                   */
     int                 default_screen;                 /* default screen for operations                                */
     int                 nscreens;                       /* number of screens on this server                             */
@@ -112,12 +115,12 @@ struct _XDisplay{
      * list to find the right procedure for each event might be
      * expensive if many extensions are being used.
      */
-    extern (C) nothrow Bool function(                   /* vector for wire to event                                     */
+    extern (C) @nogc nothrow Bool function(                   /* vector for wire to event                                     */
                             Display*                    /* dpy                                                          */,
                             XEvent*                     /* re                                                           */,
                             xEvent*                     /* event                                                        */
     )[128] event_vec;
-    extern (C) nothrow Status function(                 /* vector for event to wire                                     */
+    extern (C) @nogc nothrow Status function(                 /* vector for event to wire                                     */
                             Display*                    /* dpy                                                          */,
                             XEvent*                     /* re                                                           */,
                             xEvent*                     /* event                                                        */
@@ -127,7 +130,7 @@ struct _XDisplay{
     _XInternalAsync*        async_handlers;             /* for internal async                                           */
     c_ulong                 bigreq_size;                /* max size of big requests                                     */
     _XLockPtrs*             lock_fns;                   /* pointers to threads functions                                */
-    extern (C) nothrow void function(                   /* XID list allocator function                                  */
+    extern (C) @nogc nothrow void function(                   /* XID list allocator function                                  */
                             Display*                    /* dpy                                                          */,
                             XID*                        /* ids                                                          */,
                             int                         /* count                                                        */
@@ -139,7 +142,7 @@ struct _XDisplay{
     uint                    mode_switch;                /* keyboard group modifiers                                     */
     uint                    num_lock;                   /* keyboard numlock modifiers                                   */
     _XContextDB*            context_db;                 /* context database                                             */
-    extern (C) nothrow Bool function(                   /* vector for wire to error                                     */
+    extern (C) @nogc nothrow Bool function(                   /* vector for wire to error                                     */
                             Display*                    /* display                                                      */,
                             XErrorEvent*                /* he                                                           */,
                             xError*                     /* we                                                           */
@@ -162,7 +165,7 @@ struct _XDisplay{
     _XConnWatchInfo*        conn_watchers;              /* XAddConnectionWatch                                          */
     int                     watcher_count;              /* number of conn_watchers                                      */
     XPointer                filedes;                    /* struct pollfd cache for _XWaitForReadable                    */
-    extern (C) nothrow int function(                    /* user synchandler when Xlib usurps                            */
+    extern (C) @nogc nothrow int function(                    /* user synchandler when Xlib usurps                            */
                             Display *                   /* dpy                                                          */
     ) savedsynchandler;
     XID                     resource_max;               /* allocator max ID                                             */
@@ -174,13 +177,13 @@ struct _XDisplay{
                                                         /* Generic event cookie handling                                */
     uint                    next_cookie;                /* next event cookie                                            */
                                                         /* vector for wire to generic event, index is (extension - 128) */
-    extern (C) nothrow Bool function(
+    extern (C) @nogc nothrow Bool function(
                             Display*                    /* dpy                                                          */,
                             XGenericEventCookie*        /* Xlib event                                                   */,
                             xEvent*                     /* wire event                                                   */
     )[128] generic_event_vec;
                                                         /* vector for event copy, index is (extension - 128)            */
-    extern (C) nothrow Bool function(
+    extern (C) @nogc nothrow Bool function(
                             Display*                    /* dpy                                                          */,
                             XGenericEventCookie*        /* in                                                           */,
                             XGenericEventCookie*        /* out                                                          */
@@ -216,12 +219,12 @@ version( XTHREADS ){
     version( XTHREADS_WARN ){
         struct _XLockPtrs {                             /* interfaces for locking.c                                     */
                                                         /* used by all, including extensions; do not move               */
-            extern (C) nothrow void function(
+            extern (C) @nogc nothrow void function(
                 Display*    dpy,
                 char*       file,
                 int         line
             ) lock_display;
-            extern (C) nothrow void function(
+            extern (C) @nogc nothrow void function(
                 Display*    dpy,
                 char*       file,
                 int         line
@@ -231,12 +234,12 @@ version( XTHREADS ){
     else version( XTHREADS_FILE_LINE ){
         struct _XLockPtrs {                             /* interfaces for locking.c                                     */
                                                         /* used by all, including extensions; do not move               */
-            extern (C) nothrow void function(
+            extern (C) @nogc nothrow void function(
                 Display*    dpy,
                 char*       file,
                 int         line
             ) lock_display;
-            extern (C) nothrow void function(
+            extern (C) @nogc nothrow void function(
                 Display*    dpy,
                 char*       file,
                 int         line
@@ -246,8 +249,8 @@ version( XTHREADS ){
     else{
         struct _XLockPtrs {                             /* interfaces for locking.c                                     */
                                                         /* used by all, including extensions; do not move               */
-            extern (C) nothrow void function( Display* dpy ) lock_display;
-            extern (C) nothrow void function( Display* dpy ) unlock_display;
+            extern (C) @nogc nothrow void function( Display* dpy ) lock_display;
+            extern (C) @nogc nothrow void function( Display* dpy ) unlock_display;
         }
     }
 

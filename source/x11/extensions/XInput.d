@@ -1,6 +1,9 @@
 module x11.extensions.XInput;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 public import
 	x11.X,
@@ -8,7 +11,7 @@ public import
     x11.extensions.XI;
 
 
-extern(C):
+extern(C) @nogc nothrow:
 
 
 enum _deviceKeyPress = 0;

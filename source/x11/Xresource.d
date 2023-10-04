@@ -1,10 +1,13 @@
 module x11.Xresource;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 import x11.Xlib;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 /****************************************************************
  ****************************************************************

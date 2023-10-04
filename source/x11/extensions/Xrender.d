@@ -1,6 +1,9 @@
 module x11.extensions.Xrender;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 /*
  *
@@ -32,7 +35,7 @@ import x11.Xutil;
 
 import x11.extensions.render;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 struct XRenderDirectFormat{
 	short   red;

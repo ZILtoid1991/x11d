@@ -1,10 +1,13 @@
 module x11.X;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 import core.stdc.config;
 
-extern (C) nothrow:
+extern (C) @nogc nothrow:
 
 const uint X_PROTOCOL           = 11;   /* current protocol version */
 const uint X_PROTOCOL_REVISION  = 0;    /* current minor version    */

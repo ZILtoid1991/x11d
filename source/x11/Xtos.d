@@ -1,6 +1,9 @@
 module x11.Xtos;
 
-version(Posix):
+version (x11d_force_exclude) {
+
+
+} else version(Posix):
 
 //~ #define ALLOCATE_LOCAL_FALLBACK(_size) XtMalloc((unsigned long)(_size))
 //~ #define DEALLOCATE_LOCAL_FALLBACK(_ptr) XtFree((XtPointer)(_ptr))
