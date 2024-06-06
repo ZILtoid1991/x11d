@@ -3,7 +3,7 @@ description "x11 bindings for D"
 authors "Walter Bright"
 license "Boost Software License"
 targetType "library"
-libs "x11" platform="posix"
+libs "X11" platform="posix"
 subPackage {
     name "wintest"
     sourcePaths "./wintest"
