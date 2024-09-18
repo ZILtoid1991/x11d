@@ -7,6 +7,7 @@ version (x11d_force_exclude) {
 
 import core.stdc.config;
 import core.stdc.stdarg;
+import core.stdc.inttypes;
 import x11.X;
 
 extern (C) @nogc nothrow:
@@ -1002,7 +1003,7 @@ struct XmbTextItem{
 }
 
 struct XwcTextItem{
-    wchar*          chars;
+    wchar_t*          chars;
     int             nchars;
     int             delta;
     XFontSet        font_set;
@@ -1166,7 +1167,7 @@ struct XIMText {
     Bool encoding_is_wchar;
     union c_string{
         char* multi_char;
-        wchar*   wide_char;
+        wchar_t*   wide_char;
     }
 }
 
@@ -1204,7 +1205,7 @@ struct XIMStringConversionText{
     Bool encoding_is_wchar;
     union c_string{
         char* mbs;
-        wchar*   wcs;
+        wchar_t*   wcs;
     };
 }
 
@@ -3550,7 +3551,7 @@ extern int XmbTextEscapement(
 
 extern int XwcTextEscapement(
     XFontSet                                            /* font_set                                                     */,
-    wchar*                                              /* text                                                         */,
+    wchar_t*                                            /* text                                                         */,
     int                                                 /* num_wchars                                                   */
 );
 
@@ -3570,7 +3571,7 @@ extern int XmbTextExtents(
 
 extern int XwcTextExtents(
     XFontSet                                            /* font_set                                                     */,
-    wchar*                                              /* text                                                         */,
+    wchar_t*                                            /* text                                                         */,
     int                                                 /* num_wchars                                                   */,
     XRectangle*                                         /* overall_ink_return                                           */,
     XRectangle*                                         /* overall_logical_return                                       */
@@ -3598,7 +3599,7 @@ extern Status XmbTextPerCharExtents(
 
 extern Status XwcTextPerCharExtents(
     XFontSet                                            /* font_set                                                     */,
-    wchar*                                              /* text                                                         */,
+    wchar_t*                                              /* text                                                         */,
     int                                                 /* num_wchars                                                   */,
     XRectangle*                                         /* ink_extents_buffer                                           */,
     XRectangle*                                         /* logical_extents_buffer                                       */,
@@ -3668,7 +3669,7 @@ extern void XwcDrawString(
     GC                                                  /* gc                                                           */,
     int                                                 /* x                                                            */,
     int                                                 /* y                                                            */,
-    wchar*                                              /* text                                                         */,
+    wchar_t*                                              /* text                                                         */,
     int                                                 /* num_wchars                                                   */
 );
 
@@ -3701,7 +3702,7 @@ extern void XwcDrawImageString(
     GC                                                  /* gc                                                           */,
     int                                                 /* x                                                            */,
     int                                                 /* y                                                            */,
-    wchar*                                              /* text                                                         */,
+    wchar_t*                                              /* text                                                         */,
     int                                                 /* num_wchars                                                   */
 );
 
@@ -3762,7 +3763,7 @@ extern void XUnsetICFocus(
     XIC                                                 /* ic                                                           */
 );
 
-extern wchar*   XwcResetIC(
+extern wchar_t*   XwcResetIC(
     XIC                                                 /* ic                                                           */
 );
 
@@ -3884,14 +3885,14 @@ extern void XSetAuthorization(
 );
 
 extern int _Xmbtowc(
-    wchar*                                              /* wstr                                                         */,
+    wchar_t*                                              /* wstr                                                         */,
     char*                                               /* str                                                          */,
     int                                                 /* len                                                          */
 );
 
 extern int _Xwctomb(
     char*                                               /* str                                                          */,
-    wchar                                               /* wc                                                           */
+    wchar_t                                               /* wc                                                           */
 );
 
 extern Bool XGetEventData(

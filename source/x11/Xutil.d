@@ -6,6 +6,7 @@ version (x11d_force_exclude) {
 } else version(Posix):
 
 import core.stdc.config;
+import core.stdc.inttypes;
 import x11.Xlib;
 import x11.X;
 import x11.Xregion;
@@ -761,7 +762,7 @@ extern int XmbTextListToTextProperty(
 
 extern int XwcTextListToTextProperty(
     Display*            display,
-    wchar**             list,
+    wchar_t**             list,
     int                 count,
     XICCEncodingStyle   style,
     XTextProperty*      text_prop_return
@@ -776,7 +777,7 @@ extern int Xutf8TextListToTextProperty(
 );
 
 extern void XwcFreeStringList(
-    wchar**             list
+    wchar_t**             list
 );
 
 extern Status XTextPropertyToStringList(
@@ -795,7 +796,7 @@ extern int XmbTextPropertyToTextList(
 extern int XwcTextPropertyToTextList(
     Display*                display,
     const XTextProperty*    text_prop,
-    wchar***                list_return,
+    wchar_t***                list_return,
     int*                    count_return
 );
 
