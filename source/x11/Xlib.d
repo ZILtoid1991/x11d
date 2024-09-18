@@ -3806,7 +3806,7 @@ extern int XmbLookupString(
 extern int XwcLookupString(
     XIC                                                 /* ic                                                           */,
     XKeyPressedEvent*                                   /* event                                                        */,
-    wchar*                                              /* buffer_return                                                */,
+    wchar_t*                                              /* buffer_return                                                */,
     int                                                 /* wchars_buffer                                                */,
     KeySym*                                             /* keysym_return                                                */,
     Status*                                             /* status_return                                                */
